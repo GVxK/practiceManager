@@ -11,7 +11,7 @@ let minutesFormatted = minutes.toString().padStart(2, '0')
 let secondsFormatted = seconds.toString().padStart(2, '0')
 let workTime = false
 let breakTime = false
-let timerTimeout = ""
+let timerEnded = false
 
 
   startBtn.addEventListener("click", handleButton)
@@ -35,10 +35,17 @@ function handlePomodoro() {
   
 }
 function handleWork() {
+  workTime = true
+  console.log(workTime)
+  console.log(timerEnded)
   minutes = 0
-  seconds = 10
-  video1El.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*')
-  updateTimer()
+  seconds = 3
+  timerEnded = updateTimer()
+  if (timerEnded == true) {
+    workTime = false
+    console.log(workTime)
+  }
+  console.log(timerEnded)
 }
 function handleBreak() {
   minutes = 0
@@ -48,13 +55,6 @@ function handleBreak() {
 
 function updateTimer() {
   seconds--
-  
-    // if (startBtn.textContent === "PAUSE") {
-    //   startBtn.disabled = false
-    //   startBtn.addEventListener("click", () => {
-    //     clearTimeout(timerTimeout)
-    //    })
-    // }
   if (minutes >= 1 && seconds < 0) {
     minutes--
     seconds = 59
@@ -65,8 +65,11 @@ function updateTimer() {
   if (minutes < 1 && seconds <= 0) {
     clearTimeout(timerTimeout)
     startBtn.textContent = "START"
+    timerEnded = true
+    return true
   }
   if (startBtn.textContent === "RESUME") {
     clearTimeout(timerTimeout)
   } 
+  return false
 }
