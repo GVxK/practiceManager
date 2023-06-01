@@ -9,8 +9,12 @@ let minutes = 15
 let seconds = 05
 let minutesFormatted = minutes.toString().padStart(2, '0')
 let secondsFormatted = seconds.toString().padStart(2, '0')
-let workTime = false
-let breakTime = false
+// let workTime = true
+// let breakTime = false
+let time = {
+  work: true,
+  break: false
+}
 let timerEnded = false
 
 
@@ -26,29 +30,39 @@ function handleButton() {
     seconds++
   } else if (startBtn.textContent === "RESUME") {
     startBtn.textContent = "PAUSE"
-    updateTimer()
+    handlePomodoro()
   }
 }
 function handlePomodoro() {
-  handleWork()
-  // handleBreak()
-  
+  if (time.work) {
+    handleWork()
+  }
+  // if (breakTime) {
+  //   handleBreak()
+  // }
+   console.log("workTime is " + time.work)
 }
 function handleWork() {
-  workTime = true
-  console.log(workTime)
-  console.log(timerEnded)
   minutes = 0
-  seconds = 3
-  timerEnded = updateTimer()
-  if (timerEnded == true) {
-    workTime = false
-    console.log(workTime)
+  seconds = 5
+  updateTimer()
+  checkTimer("work", "break")
+}
+function checkTimer(now, next) {
+  let checkTimerTimeout = setTimeout(() => checkTimer(now, next), 1000)
+  if (timerEnded === true) {
+    timerEnded = false
+    time[now] = false
+    time[next] = true
+    // handlePomodoro()
+    // console.log(now, next)
+    clearTimeout(checkTimerTimeout)
   }
-  console.log(timerEnded)
+  
+  console.log("worktime is " + time.work, time.break)
 }
 function handleBreak() {
-  minutes = 0
+  minutes = 2
   seconds = 5 
   updateTimer()
 }
