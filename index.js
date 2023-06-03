@@ -56,15 +56,15 @@ function handlePomodoro() {
    console.log("workTime is " + time.work)
 }
 function handleWork() {
-  minutes = 0
-  seconds = 5
+  minutes = 25
+  seconds = 0
   updateTimer()
   checkTimer("work", "break")
   // new Audio("./assets/sounds/Chookity 4.wav").play()
 }
 function handleBreak() {
-  minutes = 0
-  seconds = 3 
+  minutes = 5
+  seconds = 0
   updateTimer()
   checkTimer("break", "work")
   console.log("BREAAAK")
