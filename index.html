@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Pomodoro</title>
   <link rel="stylesheet" href="./index.css">
 </head>
 <body>
@@ -11,15 +11,21 @@
     <h2>Timer:</h2>
     <h3 id="timer"><span id="minutes">15</span>:<span id="seconds">00</span> </h3>
     <div id="timer-btns">
-      <button id="start-btn">START</button>
-      <button>A</button>
+      <button id="start-btn">
+        <div><svg width="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Media / Play"> <path id="Vector" d="M5 17.3336V6.66698C5 5.78742 5 5.34715 5.18509 5.08691C5.34664 4.85977 5.59564 4.71064 5.87207 4.67499C6.18868 4.63415 6.57701 4.84126 7.35254 5.25487L17.3525 10.5882L17.3562 10.5898C18.2132 11.0469 18.642 11.2756 18.7826 11.5803C18.9053 11.8462 18.9053 12.1531 18.7826 12.4189C18.6418 12.7241 18.212 12.9537 17.3525 13.4121L7.35254 18.7454C6.57645 19.1593 6.1888 19.3657 5.87207 19.3248C5.59564 19.2891 5.34664 19.1401 5.18509 18.9129C5 18.6527 5 18.2132 5 17.3336Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-darkreader-inline-stroke="" style="--darkreader-inline-stroke: #e8e6e3;"></path> </g> </g></svg></div>
+        </button>
+      <button id="test">A</button>
       <button></button>
+    </div>
+    <div>
+      <h2>Total time:</h2>
+      <h3 id="total-time"><span id="total-minutes">00</span>:<span id="total-seconds">00</span></h3>
     </div>
   </div>
 
   <div id="videos">
-    <iframe id="video1" width="300" height="150" src="https://www.youtube.com/embed/u5vnmZNFwys" title="Brown Noise, Black Screen For Sleeping, Study, Focus, Relax • 24 hours • No Ads" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    <iframe id="video2" width="300" height="150" src="https://www.youtube.com/embed/R5rGICvc9ro" title="Whale Sounds Underwater Nature Video | 4K - 10 Hours for Sleep, Insomnia, Stress Relief &amp; Relaxation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe id="video1" width="0" height="0" src="https://www.youtube.com/embed/u5vnmZNFwys?enablejsapi=1" title="Brown Noise, Black Screen For Sleeping, Study, Focus, Relax • 24 hours • No Ads" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe id="video2" width="0" height="0" src="https://www.youtube.com/embed/R5rGICvc9ro?enablejsapi=1" title="Whale Sounds Underwater Nature Video | 4K - 10 Hours for Sleep, Insomnia, Stress Relief &amp; Relaxation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
   <script src="./index.js"></script>
 </body>
