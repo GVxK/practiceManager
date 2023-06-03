@@ -36,8 +36,7 @@ function handleButton() {
 function handlePomodoro() {
   if (time.work) {
     handleWork()
-  }
-  if (breakTime) {
+  } else if (time.break) {
     handleBreak()
   }
    console.log("workTime is " + time.work)
@@ -54,17 +53,18 @@ function checkTimer(now, next) {
     timerEnded = false
     time[now] = false
     time[next] = true
-    // handlePomodoro()
-    // console.log(now, next)
+    handlePomodoro()
     clearTimeout(checkTimerTimeout)
   }
   
   console.log("worktime is " + time.work, time.break)
 }
 function handleBreak() {
-  minutes = 5
-  seconds = 0 
+  minutes = 0
+  seconds = 3 
   updateTimer()
+  checkTimer("break", "work")
+  console.log("BREAAAK")
 }
 
 function updateTimer() {
