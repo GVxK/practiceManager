@@ -60,7 +60,7 @@ function handleWork() {
   seconds = 0
   updateTimer()
   checkTimer("work", "break")
-  // new Audio("./assets/sounds/Chookity 4.wav").play()
+  new Audio("./assets/sounds/Chookity 4.wav").play()
 }
 function handleBreak() {
   minutes = 5
@@ -68,7 +68,7 @@ function handleBreak() {
   updateTimer()
   checkTimer("break", "work")
   console.log("BREAAAK")
-  // new Audio("./assets/sounds/Chookity 2.wav").play()
+  new Audio("./assets/sounds/Chookity 2.wav").play()
 }
 function checkTimer(now, next) {
   let checkTimerTimeout = setTimeout(() => checkTimer(now, next), 1000)
