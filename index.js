@@ -56,14 +56,14 @@ function checkTimer(now, next) {
     time[next] = true
     // handlePomodoro()
     // console.log(now, next)
-    
+    clearTimeout(checkTimerTimeout)
   }
   
   console.log("worktime is " + time.work, time.break)
 }
 function handleBreak() {
-  minutes = 2
-  seconds = 5 
+  minutes = 5
+  seconds = 0 
   updateTimer()
 }
 
