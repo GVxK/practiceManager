@@ -37,9 +37,9 @@ function handlePomodoro() {
   if (time.work) {
     handleWork()
   }
-  // if (breakTime) {
-  //   handleBreak()
-  // }
+  if (breakTime) {
+    handleBreak()
+  }
    console.log("workTime is " + time.work)
 }
 function handleWork() {
