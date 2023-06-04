@@ -1,7 +1,7 @@
 
 @font-face {
-  font-family: display;
-  src: url(./assets/Fonts/display.ttf);
+  font-family: digital;
+  src: url(./assets/Fonts/Digital.otf);
 }
 
 body {
@@ -23,7 +23,8 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px 20px;
-  border: 1px solid #6290c8;
+  border: 1px solid #dde8f4;
+  filter: drop-shadow(0px 0px 5px #6290c8);
   border-radius: 10px;
 }
 #timer-container h2 {
@@ -32,30 +33,46 @@ body {
   font-size: 1.3rem;
 }
 #timer-container h3 {
-  font-family: display;
-  font-size: 2.3rem;
+  font-family: digital;
+  font-size: 3.7rem;
+  font-weight: 1;
   margin-top: 5px;
   margin-bottom: 0px;
   background-color: #000000;
-  border: 1px solid #6290c8;
+  border: 1px solid #dde8f4;
   border-radius: 10px;
-  padding: 10px;
+  padding: 5px 20px 3px;
   width: 130px;
+  color: #dde8f4;
+  filter: drop-shadow(0px 0px 5px #6290c8);
+  text-shadow: 0px 0px 10px #6290c8;
+
 }
 #timer-btns {
   margin-top: 5px;
   margin-bottom: 5px;
 }
 #start-btn {
-  border: 2px solid black;
   border-radius: 50%;
   width: 50px;
   height: 50px;
   background-color: #000000;
   margin-top: 10px;
+  border: 1px solid #dde8f4;
+  filter: drop-shadow(0px 0px 5px #6290c8);
+  transition: box-shadow 0.3s ease-in-out;
 }
+
+#start-btn:hover {
+  box-shadow: 0 0 10px 0px #6290c8;
+}
+
 #start-btn div {
   padding-left: 5px;
+  padding-top: 2px;
+}
+.svg-shadow {
+  filter: drop-shadow(0px 0px 5px #6290c8);
 }
 #videos {
   margin-top: 100px;
@@ -72,7 +89,7 @@ body {
 }
 #total-time-container h3 {
   font-size: 1.5rem;
-  width: 55px;
+  width: 52px;
   margin-top: 5px;
-  padding: 10px;
+  padding: 5px 12px 3px;
 }
