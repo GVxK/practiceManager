@@ -3,6 +3,7 @@ const minutesEl = document.getElementById("minutes")
 const secondsEl = document.getElementById("seconds")
 const totalSecondsEl = document.getElementById("total-seconds")
 const totalMinutesEl = document.getElementById("total-minutes")
+const totalHoursEl = document.getElementById("total-hours")
 const startBtn = document.getElementById("start-btn")
 const testBtn = document.getElementById("test")
 const video1El = document.getElementById("video1")
@@ -12,8 +13,9 @@ const playSvg = `<div><svg class="svg-shadow" width="25" viewBox="0 0 24 24" fil
 const resumeSvg = `<div style="padding-left: 5px;"><svg class="svg-shadow" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#dde8f4" data-darkreader-inline-fill="" style="--darkreader-inline-fill: #dde8f4;"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="#dde8f4" stroke="#dde8f4" stroke-width="2" d="M1,20 L6,20 L6,4 L1,4 L1,20 Z M11,19.0000002 L22,12 L11,5 L11,19.0000002 Z" data-darkreader-inline-stroke="" style="--darkreader-inline-stroke: #e8e6e3;"></path> </g></svg></div>`
 let minutes = 15
 let seconds = 05
-let totalMinutes = 0
-let totalSeconds = 0
+let totalHours = 0
+let totalMinutes = 59
+let totalSeconds = 55
 let time = {
   work: true,
   break: false
@@ -87,12 +89,17 @@ function updateTimer() {
     totalMinutes++
     totalSeconds = 0
   }
+  if (totalMinutes > 59) {
+    totalHours++
+    totalMinutes = 0
+  }
   if (minutes >= 1 && seconds < 0) {
     minutes--
     seconds = 59
   }
   minutesEl.innerHTML = minutes.toString().padStart(2, '0')
   secondsEl.innerHTML = seconds.toString().padStart(2, '0')
+  totalHoursEl.innerHTML = totalHours.toString().padStart(2, '0')
   totalMinutesEl.innerHTML = totalMinutes.toString().padStart(2, '0')
   totalSecondsEl.innerHTML = totalSeconds.toString().padStart(2, '0')
   let timerTimeout = setTimeout(updateTimer, 1000)
