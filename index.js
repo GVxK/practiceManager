@@ -14,8 +14,8 @@ const resumeSvg = `<div style="padding-left: 5px;"><svg class="svg-shadow" width
 let minutes = 15
 let seconds = 05
 let totalHours = 0
-let totalMinutes = 59
-let totalSeconds = 55
+let totalMinutes = 0
+let totalSeconds = 0
 let time = {
   work: true,
   break: false
@@ -120,3 +120,5 @@ function pauseVideos() {
   video1El.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*')
   video2El.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*')
 }
+
+//_____________________________________________________

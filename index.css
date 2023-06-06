@@ -10,7 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #000000;
+  background-color: white;
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -93,3 +93,95 @@ body {
   margin-top: 5px;
   padding: 5px 12px 3px 13px;
 }
+
+
+
+#volume-svg {
+z-index: 2;
+}
+
+.volume-control {
+  width: 10px;
+  height:  70px;
+  /* background-color: #da1212; */
+  position: relative;
+  bottom: 0px;
+  left: -19px;
+  /* opacity: 0;
+  transition: opacity 0.2s ease-in-out; */
+  
+}
+
+
+.volume-bar-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  bottom: 0px;
+  
+}
+
+.volume-bar {
+  position: absolute;
+  bottom: 0;
+  
+  width: 100%;
+  height: 100%;
+  background-color: #6290c8;
+  transition: height 0s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+}
+
+.volume-bar-thumb {
+  position: absolute;
+  top: -3px;
+  left: -1px;
+  width: 10px;
+  height: 5px;
+  background-color: #fff;
+  border: 1px solid #000;
+  cursor: pointer;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+#test {
+  position: absolute;
+  margin-top: 100px;
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
