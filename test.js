@@ -22,19 +22,6 @@ volumeSvg.addEventListener('mouseenter', function () {
   volumeBarThumb.style.bottom = `${containerRect.height - newPosition}px`; 
 });
 
-// volumeSvg.addEventListener('mouseleave', function () {
-//   if (!isDragging) {
-//     volumeBarThumb.style.visibility = "visible";
-//     volumeBarContainer.style.visibility = "visible";
-//     volumeBar.style.visibility = "visible";
-//   }
-// });
-// volumeControl.addEventListener('mouseenter', function () {
-//   volumeBarThumb.style.visibility = "visible";
-//   volumeBarContainer.style.visibility = "visible";
-//     volumeBar.style.visibility = "visible";
-// });
-
 volumeControl.addEventListener('mouseleave', function () {
   if (!isDragging) {
     volumeBarThumb.style.cssText = `visibility: hidden; opacity: 0;`
