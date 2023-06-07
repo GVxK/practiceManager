@@ -52,11 +52,10 @@ function moveVolumeBarThumb(event) {
   const containerRect = volumeBarContainer.getBoundingClientRect();
   const newPosition = Math.max(
     0,
-    Math.min(event.clientY - containerRect.top, containerRect.height)
+    Math.min(event.clientY - containerRect.bottom, containerRect.height)
   );
   // const volume = newPosition / containerRect.width;
-  volumeBar.style.position = "relative";
-  volumeBar.style.height = newPosition + 'px';
-  volumeBarThumb.style.top = newPosition + 'px';
+  volumeBar.style.height = `${containerRect.height - newPosition}px`;
+  volumeBarThumb.style.bottom = `${containerRect.height - newPosition}px`;
   // audio.volume = volume;
 }
