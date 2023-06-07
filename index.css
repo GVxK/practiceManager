@@ -96,58 +96,62 @@ body {
 
 
 
-#volume-svg {
-z-index: 2;
-}
+
 
 .volume-control {
-  width: 10px;
-  height:  70px;
+  width: 30px;
+  height: 90px;
   /* background-color: #da1212; */
   position: relative;
-  top: 0px;
-  left: -19px;
-  /* opacity: 0;
-  transition: opacity 0.2s ease-in-out; */
-  border: 1px solid #22fd00;
+  bottom: 36px;
+  left: -4px;
+  border: 2px solid #000;
 }
+#volume-svg {
+  z-index: 1;
+  position: absolute;
+  bottom: -3px;
+  left: 20%;
+  }
 
 
 .volume-bar-container {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 4px;
+  height:  70px;
   background-color: #ccc;
-  opacity: 1;
-  transition: opacity 0.2s ease-in-out;
-  top: 0px;
-  border: 1px solid #6a0eeb;
+  left: 32%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out;
+  top: 10px;
 }
 
 .volume-bar {
   position: absolute;
-  bottom: 0px;
+  bottom: -0px;
   left: 0px;
   width: 100%;
   height: 0%;
   background-color: #6290c8;
-  transition: height 0s ease-in-out;
-  transition: opacity 0.2s ease-in-out;
-  opacity: 1;
-  border: 1px solid #d82323;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .volume-bar-thumb {
   position: absolute;
   bottom: 0px;
-  left: -1px;
-  width: 10px;
-  height: 5px;
+  left: -3px;
+  width: 7px;
+  height: 3px;
   background-color: #fff;
   border: 1px solid #000;
   cursor: pointer;
-  opacity: 1;
-  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 1;
 }
 
 #test {
