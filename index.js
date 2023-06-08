@@ -125,76 +125,100 @@ function pauseVideos() {
 
 //_____________________________________________________
 
-const volumeControl = document.querySelector('.volume-control');
-const volumeBarContainer = document.querySelector('.volume-bar-container');
-const volumeBar = document.querySelector('.volume-bar');
-const volumeBarThumb = document.querySelector('.volume-bar-thumb');
-const volumeSvg = document.querySelector('#volume-svg');
-const containerRect = volumeBarContainer.getBoundingClientRect();
-let newPosition = ""
+const volumeControl = document.querySelector('.volume-control')
+const volumeBarContainer = document.querySelector('.volume-bar-container')
+const volumeBar = document.querySelector('.volume-bar')
+const volumeBarThumb = document.querySelector('.volume-bar-thumb')
+const volumeSvg = document.querySelector('#volume-svg')
+const containerRect = volumeBarContainer.getBoundingClientRect()
+let newPosition
 let volumePercentage
-volumeBar.style.height = `${containerRect.height - newPosition}px`;
-volumeBarThumb.style.bottom = `${containerRect.height - newPosition}px`; 
+
 
 let isDragging = false;
 
-volumeSvg.addEventListener('mouseenter', function () {
+volumeSvg.addEventListener('mouseenter', () => {
   volumeBarThumb.style.cssText = `visibility: visible; opacity: 1;`
   volumeBarContainer.style.cssText = `visibility: visible; opacity: 1;`
   volumeBar.style.cssText = `visibility: visible; opacity: 1;`
-  volumeBar.style.height = `${containerRect.height - newPosition}px`;
-  volumeBarThumb.style.bottom = `${containerRect.height - newPosition}px`; 
-});
+  volumeBar.style.height = `${(volumePercentage * containerRect.height) / 100}px`
+  volumeBarThumb.style.bottom = `${(volumePercentage * containerRect.height) / 100}px`
+})
 
-volumeControl.addEventListener('mouseleave', function () {
+let beforeVolume
+let volumeSvgClicked = false
+volumeSvg.addEventListener('click', () => {
+  
+  if (volumeSvgClicked === false) {
+    volumeSvgClicked = true
+    volumePercentage = 0
+    beforeVolume = volumePercentage
+    console.log(beforeVolume)
+    video1El.contentWindow.postMessage(`{"event":"command","func":"setVolume","args":[${volumePercentage}]}`, '*')
+    video2El.contentWindow.postMessage(`{"event":"command","func":"setVolume","args":[${volumePercentage}]}`, '*')
+    volumeBar.style.height = `${(volumePercentage * containerRect.height) / 100}px`
+    volumeBarThumb.style.bottom = `${(volumePercentage * containerRect.height) / 100}px`
+    console.log(volumePercentage, volumeBarThumb.style.bottom)
+  } else if (volumeSvgClicked === true) {
+    volumeSvgClicked = false
+    volumePercentage = beforeVolume
+    video1El.contentWindow.postMessage(`{"event":"command","func":"setVolume","args":[${volumePercentage}]}`, '*')
+    video2El.contentWindow.postMessage(`{"event":"command","func":"setVolume","args":[${volumePercentage}]}`, '*')
+    volumeBar.style.height = `${(volumePercentage * containerRect.height) / 100}px`
+    volumeBarThumb.style.bottom = `${(volumePercentage * containerRect.height) / 100}px`
+    console.log("meh")
+  }
+})
+volumeControl.addEventListener('mouseleave', () => {
   if (!isDragging) {
     volumeBarThumb.style.cssText = `visibility: hidden; opacity: 0;`
     volumeBarContainer.style.cssText = `visibility: hidden; opacity: 0;`
     volumeBar.style.cssText = `visibility: hidden; opacity: 0;`
   }
-});
+})
 
-volumeBarThumb.addEventListener('mousedown', function (event) {
-  isDragging = true;
-  document.addEventListener('mousemove', moveVolumeBarThumb);
-});
+volumeBarThumb.addEventListener('mousedown', (event) => {
+  isDragging = true
+  document.addEventListener('mousemove', moveVolumeBarThumb)
+})
 
 
-document.addEventListener('mouseup', function () {
+document.addEventListener('mouseup', () => {
   if (isDragging) {
-    isDragging = false;
-    document.removeEventListener('mousemove', moveVolumeBarThumb);
+    isDragging = false
+    document.removeEventListener('mousemove', moveVolumeBarThumb)
   }
 });
 
 function moveVolumeBarThumb(event) {
-  const containerRect = volumeBarContainer.getBoundingClientRect();
+  const containerRect = volumeBarContainer.getBoundingClientRect()
    newPosition = Math.max(
     0,
     Math.min(event.clientY - containerRect.top, containerRect.height)
   );
   
-  volumeBar.style.height = `${containerRect.height - newPosition}px`;
-  volumeBarThumb.style.bottom = `${containerRect.height - newPosition}px`;
+  volumeBar.style.height = `${containerRect.height - newPosition}px`
+  volumeBarThumb.style.bottom = `${containerRect.height - newPosition}px`
   
-  volumePercentage = Math.floor(((containerRect.height - newPosition) / containerRect.height) * 100);
+  volumePercentage = Math.floor(((containerRect.height - newPosition) / containerRect.height) * 100)
+  const originalNumber = (volumePercentage * containerRect.height) / 100
   video1El.contentWindow.postMessage(`{"event":"command","func":"setVolume","args":[${volumePercentage}]}`, '*')
   video2El.contentWindow.postMessage(`{"event":"command","func":"setVolume","args":[${volumePercentage}]}`, '*')
-  console.log(containerRect.height, newPosition )
+  console.log(containerRect.height, newPosition, originalNumber, volumePercentage )
 }
 let isPlaying = false
 testBtn.addEventListener("click", () => {
   if (isPlaying === false) {
-    video3El.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+    video3El.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*')
     console.log("pplaying")
   isPlaying = true
   } else if (isPlaying === true) {
-    video3El.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    video3El.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*')
     console.log("paused")
   isPlaying = false
   }
 })
 testBtn2.addEventListener("click", () => {
-  console.log(volumePercentage)
+  console.log(volumeSvgClicked)
   video3El.contentWindow.postMessage(`{"event":"command","func":"setVolume","args":[${volumePercentage}]}`, '*')
 })
