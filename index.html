@@ -8,10 +8,20 @@
   <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-  <h2>New Timer  <svg width="20" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Menu / Close_MD"> <path id="Vector" d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-darkreader-inline-stroke="" style="--darkreader-inline-stroke: #e8e6e3;"></path> </g> </g></svg>
-  </h2>
+  <nav>New Timer</nav>
+  <div id="create-timer">
+    <h2>  <svg width="20" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Menu / Close_MD"> <path id="Vector" d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-darkreader-inline-stroke="" style="--darkreader-inline-stroke: #e8e6e3;"></path> </g> </g></svg>
+    </h2>
+  </div>
+  
   <div id="timer-container">
-    <h2>Timer</h2>
+    <h2>Pomodoro</h2>
+    <div id="info-container">
+      <svg class="svg-shadow" id="info-svg" width="10px" fill="#000000" viewBox="0 0 24 24" id="information-chat" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color" data-darkreader-inline-fill="" style="--darkreader-inline-fill: #000000;"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="primary" d="M19.08,4.93a10,10,0,0,0-8.69-2.8h0A10,10,0,0,0,3,16.25l-.63,3.06a2,2,0,0,0,.55,1.82,2,2,0,0,0,1.82.54l3.06-.62A10,10,0,0,0,12,22a9.62,9.62,0,0,0,1.84-.17,10,10,0,0,0,5.24-16.9Z" style="fill: rgb(0, 0, 0); --darkreader-inline-fill: #dde8f4;" data-darkreader-inline-fill=""></path><path id="secondary" d="M12,17a1,1,0,0,1-1-1V12a1,1,0,0,1,2,0v4A1,1,0,0,1,12,17ZM12,6.5A1.5,1.5,0,1,0,13.5,8,1.5,1.5,0,0,0,12,6.5Z" style="fill: #dde8f4; --darkreader-inline-fill: #dde8f4;" data-darkreader-inline-fill=""></path></g></svg>
+      <div id="info-text">
+        <p>Pomodoro is a time managing method where you work for 25 minutes and take a break for 5 minutes</p>
+      </div>
+    </div>
     <h3 id="timer"><span id="minutes">25</span>:<span id="seconds">00</span> </h3>
     <div id="timer-btns">
       <button id="start-btn">

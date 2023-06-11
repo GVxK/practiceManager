@@ -14,6 +14,11 @@ body {
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+#create-timer {
+  background-color: gray;
+  width: 200px;
+  height: 300px;
+}
 #timer-container {
   background-color: #202937;
   height: fit-content;
@@ -32,6 +37,34 @@ body {
   margin-bottom: 0px;
   font-size: 1.3rem;
 }
+#info-container {
+  width: 0px;
+  height: 0px;
+}
+#info-svg {
+  position: absolute;
+  right: 34px;
+  top: 20px;
+}
+#info-svg:hover #info-text {
+  visibility: visible;
+}
+#info-text {
+  /* visibility: hidden; */
+  background-color: gray;
+  border: 1px solid #dde8f4;
+  border-radius: 5px;
+  width: 200px;
+  height: 25px;
+  position: absolute;
+  top: -10px;
+  right: -170px;
+
+}
+#info-text p {
+  font-size: 0.4rem;
+}
+
 #timer-container h3 {
   font-family: digital;
   font-size: 3.7rem;
