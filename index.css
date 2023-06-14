@@ -46,11 +46,9 @@ body {
   right: 34px;
   top: 20px;
 }
-#info-svg:hover #info-text {
-  visibility: visible;
-}
+
 #info-text {
-  /* visibility: hidden; */
+  font-size: 0.4rem;
   background-color: gray;
   border: 1px solid #dde8f4;
   border-radius: 5px;
@@ -58,12 +56,16 @@ body {
   height: 25px;
   position: absolute;
   top: -10px;
-  right: -170px;
+  right: -173px;
+  padding: 2px;
+  visibility: hidden;
+  transition: visible 0.5s;
 
 }
-#info-text p {
-  font-size: 0.4rem;
+#info-svg:hover + #info-text {
+  visibility: visible;
 }
+
 
 #timer-container h3 {
   font-family: digital;
