@@ -26,7 +26,36 @@ nav {
   width: 200px;
   height: 300px;
 }
-#timer-container {
+.timer-container {
+  background-color: #202937;
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px;
+  border: 1px solid #dde8f4;
+  filter: drop-shadow(0px 0px 5px #6290c8);
+  border-radius: 10px;
+}
+#timer-container h3 {
+  font-family: digital;
+  font-size: 3.7rem;
+  font-weight: 1;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  background-color: #000000;
+  border: 1px solid #dde8f4;
+  border-radius: 10px;
+  padding: 5px 20px 3px;
+  width: 130px;
+  color: #dde8f4;
+  filter: drop-shadow(0px 0px 5px #6290c8);
+  text-shadow: 0px 0px 10px #6290c8;
+
+}
+#pomodoro-container {
   grid-area: 2/3/5/5;
   align-self: center;
   justify-self: center;
@@ -42,7 +71,7 @@ nav {
   filter: drop-shadow(0px 0px 5px #6290c8);
   border-radius: 10px;
 }
-#timer-container h2 {
+#pomodoro-container h2 {
   margin-top: 0px;
   margin-bottom: 0px;
   font-size: 1.3rem;
@@ -77,7 +106,7 @@ nav {
 }
 
 
-#timer-container h3 {
+#pomodoro-container h3 {
   font-family: digital;
   font-size: 3.7rem;
   font-weight: 1;
@@ -94,7 +123,7 @@ nav {
 
 }
 
-#timer-btns {
+#pomodoro-btns {
   margin-top: 5px;
   margin-bottom: 5px;
 }
