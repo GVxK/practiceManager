@@ -6,16 +6,20 @@
 
 body {
   margin: 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   background-color: black;
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .grid {
-  
+  height: 100vh;
+  display: grid;
+  gap: 10px;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(6 , 1fr);
+}
+nav {
+  grid-area: 1/1/1/7;
+  background-color: gray;
 }
 #create-timer {
   background-color: gray;
@@ -23,6 +27,9 @@ body {
   height: 300px;
 }
 #timer-container {
+  grid-area: 2/3/5/5;
+  align-self: center;
+  justify-self: center;
   background-color: #202937;
   height: fit-content;
   width: fit-content;
