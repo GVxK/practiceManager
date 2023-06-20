@@ -14,7 +14,7 @@ body {
   height: 100vh;
   display: grid;
   gap: 10px;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(6 , 1fr);
   grid-template-columns: repeat(6 , 1fr);
 }
 nav {
@@ -23,38 +23,16 @@ nav {
 }
 #create-timer {
   background-color: gray;
-  width: 200px;
-  height: 300px;
+  width: fit-content;
+  height: fit-content;
 }
 .timer-container {
   background-color: #202937;
-  height: fit-content;
-  width: fit-content;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 20px;
-  border: 1px solid #dde8f4;
-  filter: drop-shadow(0px 0px 5px #6290c8);
-  border-radius: 10px;
+  height: 200px;
+  width: 200px;
+ 
 }
-#timer-container h3 {
-  font-family: digital;
-  font-size: 3.7rem;
-  font-weight: 1;
-  margin-top: 5px;
-  margin-bottom: 0px;
-  background-color: #000000;
-  border: 1px solid #dde8f4;
-  border-radius: 10px;
-  padding: 5px 20px 3px;
-  width: 130px;
-  color: #dde8f4;
-  filter: drop-shadow(0px 0px 5px #6290c8);
-  text-shadow: 0px 0px 10px #6290c8;
 
-}
 #pomodoro-container {
   grid-area: 2/3/5/5;
   align-self: center;
@@ -106,7 +84,7 @@ nav {
 }
 
 
-#pomodoro-container h3 {
+.timer {
   font-family: digital;
   font-size: 3.7rem;
   font-weight: 1;

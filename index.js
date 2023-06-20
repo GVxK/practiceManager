@@ -14,7 +14,7 @@ const pauseSvg = `<svg class="svg-shadow" width="20" viewBox="0 0 24 24" fill="#
 const playSvg = `<div><svg class="svg-shadow" width="25" viewBox="0 0 24 24" fill="#dde8f4" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Media / Play"> <path id="Vector" d="M5 17.3336V6.66698C5 5.78742 5 5.34715 5.18509 5.08691C5.34664 4.85977 5.59564 4.71064 5.87207 4.67499C6.18868 4.63415 6.57701 4.84126 7.35254 5.25487L17.3525 10.5882L17.3562 10.5898C18.2132 11.0469 18.642 11.2756 18.7826 11.5803C18.9053 11.8462 18.9053 12.1531 18.7826 12.4189C18.6418 12.7241 18.212 12.9537 17.3525 13.4121L7.35254 18.7454C6.57645 19.1593 6.1888 19.3657 5.87207 19.3248C5.59564 19.2891 5.34664 19.1401 5.18509 18.9129C5 18.6527 5 18.2132 5 17.3336Z" stroke="#dde8f4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-darkreader-inline-stroke="" style="--darkreader-inline-stroke: #e8e6e3;"></path> </g> </g></svg></div>`
 const resumeSvg = `<div style="padding-left: 5px;"><svg class="svg-shadow" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#dde8f4" data-darkreader-inline-fill="" style="--darkreader-inline-fill: #dde8f4;"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="#dde8f4" stroke="#dde8f4" stroke-width="2" d="M1,20 L6,20 L6,4 L1,4 L1,20 Z M11,19.0000002 L22,12 L11,5 L11,19.0000002 Z" data-darkreader-inline-stroke="" style="--darkreader-inline-stroke: #e8e6e3;"></path> </g></svg></div>`
 let minutes = 15
-let seconds = 05
+let seconds = 5
 let totalHours = 0
 let totalMinutes = 0
 let totalSeconds = 0
@@ -123,7 +123,7 @@ function pauseVideos() {
   video2El.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*')
 }
 
-//_____________________________________________________
+// AUDIO_____________________________________________________
 
 const volumeControl = document.querySelector('.volume-control')
 const volumeBarContainer = document.querySelector('.volume-bar-container')
@@ -208,17 +208,16 @@ function moveVolumeBarThumb(event) {
 }
 let isPlaying = false
 testBtn.addEventListener("click", () => {
-  if (isPlaying === false) {
-    video3El.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*')
-    console.log("pplaying")
-  isPlaying = true
-  } else if (isPlaying === true) {
-    video3El.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*')
-    console.log("paused")
-  isPlaying = false
-  }
+  console.log(timerInput1.value)
 })
 testBtn2.addEventListener("click", () => {
   console.log(volumeSvgClicked)
   video3El.contentWindow.postMessage(`{"event":"command","func":"setVolume","args":[${volumePercentage}]}`, '*')
 })
+
+// TIMERS_____________________________________________________
+
+const timerInput1 = document.getElementById("timer=input-1")
+
+
+
