@@ -18,8 +18,8 @@ body {
   grid-template-columns: repeat(6 , 1fr);
 }
 nav {
-  grid-area: 1/1/1/7;
-  background-color: gray;
+  grid-area: 1/1/2/7;
+  background-color: #202937;
 }
 #create-timer {
   background-color: gray;
