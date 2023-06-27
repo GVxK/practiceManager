@@ -217,7 +217,7 @@ testBtn2.addEventListener("click", () => {
 
 // TIMERS_____________________________________________________
 
-const timerInput1 = document.getElementById("timer=input-1")
+const timerInput1 = document.getElementById("timer-input-1")
 
 
 
